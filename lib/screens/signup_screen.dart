@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movigo_app/widgets/register_form.dart';
+import 'package:movigo_app/widgets/login_form.dart';
+import 'package:movigo_app/widgets/facebook_and_condiciones.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -155,138 +158,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           bottomRight: Radius.circular(16),
                         ),
                       ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: 20),
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: 'correo@electronico.com',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Row(
-                            children: [
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                  vertical: 12,
-                                ),
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  border: Border(
-                                    top: BorderSide(color: Colors.grey),
-                                    bottom: BorderSide(color: Colors.grey),
-                                    left: BorderSide(color: Colors.grey),
-                                  ),
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    bottomLeft: Radius.circular(10),
-                                  ),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Image.asset(
-                                      'assets/images/flag_pe.png',
-                                      width: 24,
-                                      height: 28,
-                                    ),
-                                    SizedBox(width: 10),
-                                    Image.asset(
-                                      'assets/images/arrow-down-b.png',
-                                      width: 24,
-                                      height: 28,
-                                    ),
-                                  ],
-                                ),
-                              ),
-
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.grey),
-                                    borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(10),
-                                      bottomRight: Radius.circular(10),
-                                    ),
-                                  ),
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        '+51',
-                                        style: TextStyle(fontSize: 17),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Expanded(
-                                        child: TextField(
-                                          keyboardType: TextInputType.phone,
-                                          style: TextStyle(fontSize: 17),
-                                          decoration: InputDecoration(
-                                            hintText: 'Número telefónico',
-                                            border:
-                                                InputBorder
-                                                    .none, // Para que no duplique bordes
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 30),
-                          ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF409CFF),
-                              minimumSize: Size(double.infinity, 50),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            child: Text(
-                              'Registrarse',
-                              style: TextStyle(
-                                color: Colors.white,
-
-                                fontSize: 19,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      child:
+                          selectedTab == 0
+                              ? const RegisterForm()
+                              : const LoginForm(),
                     ),
                     SizedBox(height: 30),
-                    ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Image.asset(
-                        'assets/images/facebook_logo.png',
-                        width: 24, // Ajusta según el tamaño de tu imagen
-                        height: 24,
-                      ),
-                      label: Text(
-                        'Conectar con Facebook',
-                        style: TextStyle(color: Colors.white, fontSize: 19),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF2672CB),
-                        minimumSize: Size(double.infinity, 50),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
+                    Container(
+                      child:
+                          selectedTab == 0
+                              ? const FacebookAndCondiciones()
+                              : null,
                     ),
-                    SizedBox(height: 20),
-                    Text(
-                      'Al hacer click, aceptas nuestros términos y condiciones',
-                      style: TextStyle(fontSize: 12, color: Colors.black54),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -297,3 +180,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
+
+
+
+

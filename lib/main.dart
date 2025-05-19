@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movigo_app/screens/signup_screen.dart';
+import 'package:movigo_app/screens/carga_screen.dart';
 
 void main() {
   runApp(
@@ -8,7 +9,7 @@ void main() {
       theme: ThemeData(
         fontFamily: 'Abel', // ✅ Aplica Abel globalmente
       ),
-      home: const SignUpScreen(),
+      home: const CargaScreen(),
     ),
   );
 }
